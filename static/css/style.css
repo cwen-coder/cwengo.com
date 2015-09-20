@@ -1,3 +1,17 @@
+/* body {
+  font: 12px/1.5 'Microsoft Yahei', 'Simsun';
+  color: #666666;
+  background: #fff;
+} */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a:hover { 
+    text-decoration: none;
+}
+
 .container{
 	padding-left: 5%;
 	padding-right: 5%;
@@ -7,18 +21,31 @@
 } 
 
 .container .pull-right {
-	padding-right: 10%;
+	padding-right: 12%;
 }
 
 .container .container-content .col-md-8 {
-	padding-left: 0px;
+	  padding-left: 0px;
+}
+
+.container .container-content .col-md-4 {
+    padding-right: 0px;
+}
+
+.container .container-content .col-md-4 .list-group{
+    color: #888;
+    margin: 5px 0;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 1.8;
 }
 .container .container-content .col-md-8 .article-list-header{
 	border-bottom: 1px solid #D4D4D4;
+  padding-bottom: 5px;
 }
 .article-list .article__content {
   	color: #888;
- 	margin: 5px 0;
+ 	  margin: 5px 0;
   	border-radius: 3px;
   	font-size: 16px;
   	line-height: 1.8;
@@ -28,20 +55,24 @@
   	font-weight: bold;
   	font-size: 18px;
 }
-.article_meta {
+.article-list .article_meta {
   	margin-top: 10px;
   	color: #AAA;
 }
-.article_meta a{
-	font-size: 12px;
+.article-list .article_meta a{
+	  font-size: 12px;
   	color: #999;
   	padding: 0 3px 0 6px;
 }
-.article_meta .tags{
-  	margin-left: 10px;
+.article-list .article_meta .tags{
+  	margin-right: 10px;
 }
 
-.article_meta a {
+.article-list .article_meta .tags span{
+    padding-left: 8px;
+}
+
+.article-list .article_meta a {
 	padding-top: 0px;
 	margin-top: 0px;
 	top:0px;
@@ -51,10 +82,76 @@
 	padding: 5px 0 8px;
 	font-size: 20px;
 }
+footer {
+  margin-top: 10px;
+}
 footer .container .footer{
-	color: #888;
+  padding-top: 10px;
+	  color: #888;
   	border-radius: 3px;
   	font-size: 16px;
   	line-height: 1.8;
   	border-top: 1px solid #D4D4D4; 
+}
+
+
+/*标签云*/
+.cloud { 
+    width: 100%; 
+    clear: both; 
+    overflow: hidden 
+}
+.cloud ul { 
+    padding: 10px 10px 10px 18px;
+}
+.cloud ul li { 
+    line-height: 19px; 
+    height: 24px; 
+    display: block; 
+    background: #999; 
+    float: left; 
+    padding: 3px 11px; 
+    margin: 10px 10px 0 0; 
+    border-radius: 8px; 
+    -moz-transition: all 0.5s; 
+    -webkit-transition: all 0.5s; 
+    -o-transition: all 0.5s; 
+    transition: all 0.5s; 
+
+}
+.cloud ul li a { 
+    color: #FFF ;
+}
+.cloud ul li:nth-child(8n-7) {
+  background: #8A9B0F 
+}
+.cloud ul li:nth-child(8n-6) {
+   background: #EB6841 
+}
+.cloud ul li:nth-child(8n-5) {
+   background: #3FB8AF 
+}
+.cloud ul li:nth-child(8n-4) {
+   background: #FE4365 
+}
+.cloud ul li:nth-child(8n-3) {
+   background: #FC9D9A 
+}
+.cloud ul li:nth-child(8n-2) {
+   background: #EDC951 
+}
+.cloud ul li:nth-child(8n-1) {
+   background: #C8C8A9 
+}
+.cloud ul li:nth-child(8n) {
+   background: #83AF9B 
+}
+.cloud ul li:first-child { 
+    background: #036564 
+}
+.cloud ul li:last-child { 
+  background: #3299BB 
+}
+.cloud ul li:hover { 
+  border-radius: 0; text-shadow: #000 1px 1px 1px 
 }

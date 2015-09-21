@@ -1,0 +1,217 @@
+/* 共用css */
+
+img { border: 0; display: block }
+ul { list-style: none; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal; }
+a { outline: none; }
+a:link, a:visited { text-decoration: none; color: #666 }
+a:hover { text-decoration: none; }
+.clear { clear: both; }
+.blank { height: 5px; overflow: hidden; width: 100%; margin: auto; clear: both }
+.f_l { float: left }
+.f_r { float: right }
+.l_box { width: 670px; }
+.r_box { width: 300px; }
+a:hover {
+  color: #000; 
+}
+
+/* 切换卡 */
+
+.ms-top { 
+    height: 32px; 
+    font-size: 14px; 
+}
+
+.ms-main ul{ 
+ /*  padding-bottom: 0px; */
+ margin-bottom: 0px;
+}
+
+#tab li a { 
+    float: left; 
+    height: 32px; 
+    cursor: pointer; 
+    line-height: 32px; 
+    list-style-type: none; 
+    padding: 0 15px; 
+    margin-top: 0px;
+}
+#tab li.cur a { 
+    color: #fff; 
+    background: #f77825; 
+}
+.bd { 
+    display: none 
+}
+.bd-news ul {
+   padding: 0px 0 0 0px; 
+   /* background: url(../images/ph2.png) no-repeat 10px 29px;  */
+}
+.bd-news ul li { 
+    /* border-bottom: solid 1px #EAEAEA;  */
+    line-height: 30px; height: 45px; 
+    overflow: hidden; 
+    font-size: 14px; 
+    padding: 5px 0 0 10px; 
+    border:0px 0px 1px 0px;
+    border-width: 1px 0px;
+}
+
+.bd-news ul li a {
+   display: block; 
+}
+/* .bd-news ul li:hover {
+   border-bottom: #000 1px solid; 
+} *//* 鼠标放上去的效果 */
+/* .index_about { 
+    float: left; 
+    width: 690px; 
+    overflow: hidden; 
+    background: url(../images/r_line.jpg) 
+    repeat-y right; margin: 10px 0 
+} */
+.c_titile { 
+    font-size: 22px; 
+    margin: 20px 0; 
+    text-align: center;
+    color: #333; 
+}
+.box_c { 
+    border: #ccc 1px dashed; 
+    text-align: center; 
+    padding: 5px 0; 
+    margin-right: 30px;
+    color: #999;
+}
+.box_c span { 
+    margin: 0 10px; 
+}
+.box_c span a{
+    color: #099;
+}
+ul.infos { 
+    overflow: hidden; 
+    margin: 20px 30px 20px 0; 
+    line-height: 28px; 
+    font-size: 14px; 
+    text-indent: 2em;color:#666 
+}
+ul.infos p { 
+    margin-bottom: 5px 
+}
+ul.infos p img { 
+    display: block; 
+    margin: auto 
+}
+/* .keybq { background: url(../images/6264.png) no-repeat 10px center #F8F8F8; line-height: 30px; height: 30px; padding-left: 40px; border: 1px solid #F0F0F0; margin-right: 20px; } */
+.keybq span { 
+    color: #099 
+}
+.nextinfo { 
+    line-height: 24px; 
+}
+.otherlink h2 { 
+    border-bottom: #099 2px solid; 
+    line-height: 40px; 
+    font-size: 12px; 
+    font-weight: normal; 
+    margin-right: 20px; 
+    /* background:url(../images/5794.png) 10px center no-repeat;  */
+    padding-left:40px
+}
+.otherlink ul { 
+    margin: 10px 0 
+}
+.otherlink li { 
+    line-height: 24px; 
+    height: 24px; 
+    display: block; 
+    width: 290px; 
+    float: left; 
+    overflow: hidden; 
+    margin-right: 30px; 
+}
+.otherlink li a:hover{ 
+  text-decoration:underline
+}
+.panel .padding-tab {
+    padding-top: 0px; 
+    padding-bottom: 0px;
+}
+.panel-default>.panel-heading {
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  border-width: 2px;
+}
+.panel {
+  border: 0px solid transparent;
+}
+.list-group-item:last-child {
+  border-bottom: 0px solid #ddd;
+}
+
+
+/*标签云*/
+.cloud { 
+    width: 100%; 
+    clear: both; 
+    overflow: hidden 
+}
+.cloud ul { 
+    padding: 10px 10px 10px 18px;
+}
+.cloud ul li { 
+    line-height: 18px; 
+    height: 24px; 
+    display: block; 
+    background: #999; 
+    float: left; 
+    padding: 3px 11px; 
+    margin: 10px 10px 0 0; 
+    border-radius: 8px; 
+    -moz-transition: all 0.5s; 
+    -webkit-transition: all 0.5s; 
+    -o-transition: all 0.5s; 
+    transition: all 0.5s; 
+
+}
+.cloud ul li a { 
+    color: #FFF ;
+}
+.cloud ul li:nth-child(8n-7) {
+  background: #8A9B0F 
+}
+.cloud ul li:nth-child(8n-6) {
+   background: #EB6841 
+}
+.cloud ul li:nth-child(8n-5) {
+   background: #3FB8AF 
+}
+.cloud ul li:nth-child(8n-4) {
+   background: #FE4365 
+}
+.cloud ul li:nth-child(8n-3) {
+   background: #FC9D9A 
+}
+.cloud ul li:nth-child(8n-2) {
+   background: #EDC951 
+}
+.cloud ul li:nth-child(8n-1) {
+   background: #C8C8A9 
+}
+.cloud ul li:nth-child(8n) {
+   background: #83AF9B 
+}
+.cloud ul li:first-child { 
+    background: #036564 
+}
+.cloud ul li:last-child { 
+  background: #3299BB 
+}
+.cloud ul li:hover { 
+  border-radius: 0; text-shadow: #000 1px 1px 1px 
+}
+
+

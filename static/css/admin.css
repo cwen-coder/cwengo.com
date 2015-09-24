@@ -1,0 +1,7 @@
+.row-fluid {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.row-fluid>.well{
+	margin-top: 15px;
+}

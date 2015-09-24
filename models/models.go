@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 	"time"
@@ -50,4 +51,14 @@ func RegisterDB() {
 	orm.RegisterModel(new(Admin), new(Category), new(Topic), new(Label))
 	orm.RegisterDriver("mysql", orm.DR_MySQL)
 	orm.RegisterDataBase("default", "mysql", "root:yin123@/cwengo.com?charset=utf8")
+}
+
+func GetAdminInfo(username string) (admin Admin) {
+	o := orm.NewOrm()
+	qs := o.QueryTable("admin")
+	err := qs.Filter("username", username).One(&admin)
+	if err != nil {
+		fmt.Println("Fail error", err.Error())
+	}
+	return
 }

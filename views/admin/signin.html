@@ -1,0 +1,55 @@
+{{template "Tpl/T.header.tpl" }}
+    <title>管理员登录－沉稳，不乏可爱</title>
+  </head>
+  <body>
+   <div class="container" style="width:40%;padding-top:10%;">
+      <form method="POST" action="/admin/login">
+        <div class="form-group">
+          <label >Account</label>
+          <input class="form-control"  placeholder="Enter account" name="uname" id="uname">
+         
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" placeholder="Password" name="pwd" id="pwd">
+          
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="autoLogin"> 下次自动登录
+          </label>
+        </div>
+        <button type="submit" class="btn btn-default" onclick="return checkInput();">登录</button>
+        <button type="submit" class="btn btn-default" onclick="return backToHome();">返回</button>
+        <script type="text/javascript">
+            function backToHome() {
+              window.location.href = "/";
+              return false;
+            }
+
+            function checkInput() {
+              var uname = document.getElementById("uname");
+              if(uname.value.length == 0) {
+                alert("请输入账号");
+                return false;
+              }
+              var pwd = document.getElementById("pwd");
+              if(pwd.value.length == 0) {
+                alert("请输入密码");
+                return false;
+              }
+            }
+            {{if .UsernameNull}}
+                  alert({{.UsernameNull}});
+            {{end}}
+            {{if .PasswordNull}}
+                   alert({{.PasswordNull}});
+             {{end}}
+        </script>
+      </form>
+   </div>
+
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>

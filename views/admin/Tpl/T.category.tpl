@@ -19,8 +19,8 @@
 		 			<th>{{.Title}}</th>
 		 			<th>{{.TopicCount}}</th>
 		 			<td>
-		 				<a href=""><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;
-		 				<a href=""><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+		 				<a href="javascript:;" class="" section="{{.Id}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;
+		 				<a href="javascript:;" class="category_del" section="{{.Id}}" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 		 			</td>
 		 		</tr>
 		 		{{end}}

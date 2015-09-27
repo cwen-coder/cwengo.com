@@ -1,5 +1,5 @@
 <link rel="stylesheet"  type="text/css" href="/static/css/admin.css">
-<script type="text/javascript" src="/static/js/category.js"></script>
+
 <div class="row-fluid">
 	<div class="btn-toolbar">
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategory"><span class="glyphicon glyphicon-plus" aria-hidden="true"  ></span>添加分类</button>
@@ -60,3 +60,4 @@
     </div>
   </div>
 </div>
+<script type="text/javascript" src="/static/js/category.js"></script>

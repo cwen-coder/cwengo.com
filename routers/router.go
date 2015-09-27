@@ -11,4 +11,6 @@ func init() {
 	beego.Router("/admin/home", &admin.HomeController{})
 	beego.Router("/admin/login", &admin.LoginController{})
 	beego.Router("/admin/category", &admin.CategoryController{})
+	beego.Router("/admin/category/DelCategory", &admin.CategoryController{}, "post:DelCategory")
+
 }

@@ -3,6 +3,7 @@ package models
 import (
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
+	"strconv"
 	"time"
 )
 
@@ -32,4 +33,15 @@ func GetAllCategories() ([]*Category, error) {
 	qs := o.QueryTable("category")
 	_, err := qs.All(&cates)
 	return cates, err
+}
+
+func DelCategory(category_id string) error {
+	o := orm.NewOrm()
+	CateId, err := strconv.ParseInt(category_id, 10, 64)
+	if err != nil {
+		return err
+	}
+	cate := &Category{Id: CateId}
+	_, err = o.Delete(cate)
+	return err
 }

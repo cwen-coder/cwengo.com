@@ -70,6 +70,7 @@ func (this *HomeController) Get() {
 		}
 		this.Data["PageStr"] = "<ul>" + pageStr + "</ul>"*/
 	this.Data["Username"] = this.GetSession("username")
+	this.Data["toplicList"] = true
 	this.Layout = "admin/layout.html"
 	this.TplNames = "admin/Tpl/T.home.tpl"
 }

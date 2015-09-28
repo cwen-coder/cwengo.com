@@ -67,9 +67,10 @@
 <div class="sidebar-nav" style="border-top-width: 6px;border-top-style: solid;border-top-color: #1D1D1D;">
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>博客管理</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
-            <li {{if .toplicList}} class="active" {{end}}><a href="/admin/index">博客列表</a></li>
-            <li {{if .addTopic}} class="active" {{end}} ><a href="/admin/addblog">博客添加</a></li>  
+            <li {{if .toplicList}} class="active" {{end}}><a href="/admin/home">博客列表</a></li>
+            <li {{if .addTopic}} class="active" {{end}} ><a href="/admin/topic">博客添加</a></li>  
             <li {{if .isCategory}} class="active" {{end}} ><a href="/admin/category">分类列表</a></li>           
+            <li {{if .isLabel}} class="active" {{end}} ><a href="/admin/label">标签列表</a></li>           
         </ul>
 
     </div>

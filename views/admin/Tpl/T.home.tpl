@@ -1,7 +1,8 @@
+<link rel="stylesheet"  type="text/css" href="/static/css/admin.css">
 <div class="row-fluid">
 
 <div class="btn-toolbar">
-    <a class="btn btn-primary" href="/admin/addblog"><i class="icon-plus"></i>添加博客</a>
+    <a type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-plus" aria-hidden="true"  ></span>添加博客</a>
   <div class="btn-group">
   </div>
 </div>

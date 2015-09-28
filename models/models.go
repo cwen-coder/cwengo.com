@@ -28,9 +28,9 @@ type Label struct {
 	Title           string    `orm:"index"`
 	Created         time.Time `orm:"index"`
 	Views           int64     `orm:"index"`
-	LabelTime       time.Time `orm:"index"`
-	LabelCount      int64
-	LabelLastUserId int64
+	TopicTime       time.Time `orm:"index"`
+	TopicCount      int64
+	TopicLastUserId int64
 }
 
 type Topic struct {

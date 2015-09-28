@@ -13,5 +13,8 @@ func init() {
 	beego.Router("/admin/category", &admin.CategoryController{})
 	beego.Router("/admin/category/DelCategory", &admin.CategoryController{}, "post:DelCategory")
 	beego.Router("/admin/category/EditCategory", &admin.CategoryController{}, "post:EditCategory")
+	beego.Router("/admin/label", &admin.LabelController{})
+	beego.Router("/admin/label/DelLabel", &admin.LabelController{}, "post:DelLabel")
+	beego.Router("/admin/label/EditLabel", &admin.LabelController{}, "post:EditLabel")
 
 }

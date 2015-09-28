@@ -15,11 +15,11 @@
 		 	<tbody>
 		 		{{range .Categories}}
 		 		<tr>
-		 			<th>{{.Id}}</th>
-		 			<th>{{.Title}}</th>
-		 			<th>{{.TopicCount}}</th>
+		 			<td>{{.Id}}</td>
+		 			<td>{{.Title}}</td>
+		 			<td>{{.TopicCount}}</td>
 		 			<td>
-		 				<a href="javascript:;" class="" section="{{.Id}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;
+		 				<a href="javascript:;" class="category_edit" section="{{.Id}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;
 		 				<a href="javascript:;" class="category_del" section="{{.Id}}" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 		 			</td>
 		 		</tr>
@@ -49,6 +49,39 @@
         <script>
         function checkInput() {
 	        var NewCategory = document.getElementById("NewCategory");
+	        if(NewCategory.value.length == 0) {
+	            alert("分类名称不能为空");
+	            return false;
+	        }
+      	}
+        </script>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editCategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">分类修改</h4>
+      </div>
+      <div class="modal-body">
+       		<form  method="post">
+       		  <div class="form-group">
+       		    <label>分类名</label>
+       		    <input type="hidden" name="EditCategoryId" id="EditCategoryId">
+       		    <input type="text" class="form-control" name="EditNewCategory" id="EditNewCategory" placeholder="Email">
+       		  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" onclick="return checkEditInput();" >保存</button>
+        <script>
+        function checkEditInput() {
+	        var NewCategory = document.getElementById("EditNewCategory");
 	        if(NewCategory.value.length == 0) {
 	            alert("分类名称不能为空");
 	            return false;

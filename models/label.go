@@ -12,8 +12,8 @@ func AddLabel(newLabel string) error {
 	o := orm.NewOrm()
 	label := &Label{
 		Title:     newLabel,
-		Created:   time.Now(),
-		TopicTime: time.Now(),
+		Created:   time.Now().Format("2006-01-02 15:04:05"),
+		TopicTime: time.Now().Format("2006-01-02 15:04:05"),
 	}
 	qs := o.QueryTable("label")
 	err := qs.Filter("title", newLabel).One(label)

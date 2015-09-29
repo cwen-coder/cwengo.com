@@ -16,6 +16,7 @@ func init() {
 	beego.Router("/admin/label", &admin.LabelController{})
 	beego.Router("/admin/label/DelLabel", &admin.LabelController{}, "post:DelLabel")
 	beego.Router("/admin/label/EditLabel", &admin.LabelController{}, "post:EditLabel")
-	beego.Router("/admin/addTopic", &admin.AddTopicController{})
+	beego.Router("/admin/topic", &admin.TopicController{})
+	beego.Router("/admin/topic/DelTopic", &admin.TopicController{}, "post:DelTopic")
 
 }

@@ -11,7 +11,7 @@
     <form id="tab" method="post">
         <div class="form-group topic">
             <label>博客标题</label>
-            <input type="text" name="title" value="" class="form-control">
+            <input type="text" name="title" value="" id="title" class="form-control">
         </div>
         <div class="form-group topic">
             <label>博客分类</label>
@@ -26,7 +26,7 @@
             <div>
             {{range .Labels}}
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="label" value="{{.Id}}"> {{.Title}}
+                  <input type="checkbox" name="label[]" value="{{.Id}}"> {{.Title}}
                 </label>
             {{end}}
             </div>
@@ -38,9 +38,24 @@
         </div>
         <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
         <div class="btn-toolbar">
-        	<button class="btn btn-primary" type="submit"><i class="icon-save"></i> 提交</button>
+        	<button class="btn btn-primary" type="submit" onclick="return checkInput();"><i class="icon-save" ></i> 提交</button>
+        
 		</div>
     </form>
+    <script type="text/javascript">
+        function checkInput() {
+          var title = document.getElementById("title");
+          if(title.value.length == 0) {
+              alert("博客名称不能为空");
+              return false;
+          }
+          var content = document.getElementById("wmd-input");
+          if(content.value.length == 0) {
+              alert("博客内容不能为空");
+              return false;
+          }
+        }
+    </script>
       </div>
   </div>
 

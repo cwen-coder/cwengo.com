@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
-	"time"
 )
 
 type Admin struct {
@@ -16,19 +15,19 @@ type Admin struct {
 type Category struct {
 	Id              int64
 	Title           string
-	Created         time.Time `orm:"index"`
-	Views           int64     `orm:"index"`
-	TopicTime       time.Time `orm:"index"`
+	Created         string `orm:"index"`
+	Views           int64  `orm:"index"`
+	TopicTime       string `orm:"index"`
 	TopicCount      int64
 	TopicLastUserId int64
 }
 
 type Label struct {
 	Id              int64
-	Title           string    `orm:"index"`
-	Created         time.Time `orm:"index"`
-	Views           int64     `orm:"index"`
-	TopicTime       time.Time `orm:"index"`
+	Title           string `orm:"index"`
+	Created         string `orm:"index"`
+	Views           int64  `orm:"index"`
+	TopicTime       string `orm:"index"`
 	TopicCount      int64
 	TopicLastUserId int64
 }
@@ -41,9 +40,9 @@ type Topic struct {
 	Lables     string
 	Content    string `orm:"site(5000)"`
 	Attachment string
-	Created    time.Time `orm:"index"`
-	Updated    time.Time `orm:"index"`
-	Views      int64     `orm:"index"`
+	Created    string `orm:"index"`
+	Updated    string `orm:"index"`
+	Views      int64  `orm:"index"`
 	Author     string
 }
 

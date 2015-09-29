@@ -12,8 +12,8 @@ func AddCategory(newCategory string) error {
 	o := orm.NewOrm()
 	cate := &Category{
 		Title:     newCategory,
-		Created:   time.Now(),
-		TopicTime: time.Now(),
+		Created:   time.Now().Format("2006-01-02 15:04:05"),
+		TopicTime: time.Now().Format("2006-01-02 15:04:05"),
 	}
 	qs := o.QueryTable("category")
 	err := qs.Filter("title", newCategory).One(cate)

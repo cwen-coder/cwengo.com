@@ -1,7 +1,7 @@
 package admin
 
 import (
-	/*"cwengo.com/models"*/
+	"cwengo.com/models"
 	/*"cwengo.com/utils"*/
 	"github.com/astaxie/beego"
 	/*"strconv"*/)
@@ -11,6 +11,11 @@ type HomeController struct {
 }
 
 func (this *HomeController) Get() {
+	topics, err := models.GetAllTopics("", "", true)
+	if err != nil {
+		beego.Error(err)
+	}
+	this.Data["Topics"] = topics
 	/*	this.Ctx.Request.ParseForm()
 
 		page, _ := strconv.Atoi(this.Ctx.Request.Form.Get("page"))

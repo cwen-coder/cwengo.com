@@ -47,8 +47,14 @@ type Topic struct {
 	Author     string
 }
 
+type TopicLabel struct {
+	Id      int64
+	TopicId int64 `orm:"index"`
+	LabelId int64 `orm:"index"`
+}
+
 func RegisterDB() {
-	orm.RegisterModel(new(Admin), new(Category), new(Topic), new(Label))
+	orm.RegisterModel(new(Admin), new(Category), new(Topic), new(Label), new(TopicLabel))
 	orm.RegisterDriver("mysql", orm.DR_MySQL)
 	orm.RegisterDataBase("default", "mysql", "root:yin123@/cwengo.com?charset=utf8")
 }

@@ -31,6 +31,10 @@
             {{end}}
             </div>
         </div>
+      <div class="form-group topic">
+          <label>博客概要</label>
+          <textarea class="form-control" name="summery" id="summery" rows="3"></textarea>
+      </div>
         <div class="wmd-panel form-group">
 			       <label>博客内容</label>
             <div id="wmd-button-bar"></div>
@@ -49,6 +53,13 @@
               alert("博客名称不能为空");
               return false;
           }
+
+          var summery = document.getElementById("summery");
+          if(summery.value.length == 0) {
+              alert("博客概要不能为空");
+              return false;
+          }
+
           var content = document.getElementById("wmd-input");
           if(content.value.length == 0) {
               alert("博客内容不能为空");

@@ -15,56 +15,32 @@
 				<h4>最新文章</h4>
 			</div>
 			<div class="article-list">
+			{{$LabelI := .LabelId}}
+			{{$LabelN := .Label}}
+			{{range $k,$v:=.Topics}}
 				<div class="page-header">
-					<h4 class="article__title"><a href="/">测试标题</a></h4>
-					<h6 class="text-muted"> 文章发表于 {{.Created}}，共有 {{.Views}} 次浏览， {{.ReplyCount}} 个评论</h6> 
+					<h4 class="article__title"><a href="/">{{$v.Title}}</a></h4>
+					<h6 class="text-muted"> 文章发表于 {{$v.Created}}，共有 {{$v.Views}} 次浏览， 个评论</h6> 
 					<p class="article__content">
-						测试文本急急急解决急急急急急急急急急蜀都赋深度雷锋精神代理费蜀都赋sd卡福建是的看法但是的方式的发送的方式的发货速度快发货收快点和速度快恢复快速的恢复sd卡方式的发货sd卡和方式的富士康蜀都赋看电视福克斯点击回复开始的恢复开始电话费sd卡回复快速的和方式贷款和方式贷款和方式快递和方式快递和方式的开发和是肯定的......
+						{{$v.Summery}}
 					</p>
 					<footer class="article_meta">
-						<a href="/"><span class='glyphicon glyphicon-tags tags' aria-hidden="true"><span>golang</span></span></a>
-						<a href="/"><span class='glyphicon glyphicon-tags tags' aria-hidden="true"><span>golang</span></span></a>
-						<a href="/"><span class='glyphicon glyphicon-tags tags' aria-hidden="true"><span>golang</span></span></a>
+						{{range $c,$w:=index $LabelI $k}}
+						<a href="/{{$w}}"><span class='glyphicon glyphicon-tags tags' aria-hidden="true" ><span>{{index $LabelN $k $c}}</span></span></a>
+						{{end}}
+						
 					</footer>
 				</div>
-				<div class="page-header">
-					<h4 class="article__title"><a href="">测试标题</a></h4>
-					<h6 class="text-muted"> 文章发表于 {{.Created}}，共有 {{.Views}} 次浏览， {{.ReplyCount}} 个评论</h6> 
-					<p class="article__content">
-						测试文本急急急解决急急急急急急急急急蜀都赋深度雷锋精神代理费蜀都赋sd卡福建是的看法但是的方式的发送的方式的发货速度快发货收快点和速度快恢复快速的恢复sd卡方式的发货sd卡和方式的富士康蜀都赋看电视福克斯点击回复开始的恢复开始电话费sd卡回复快速的和方式贷款和方式贷款和方式快递和方式快递和方式的开发和是肯定的......
-					</p>
-					<footer class="article_meta">
-						<a href="/"><span class='glyphicon glyphicon-tags tags' aria-hidden="true"><span>golang</span></span></a>
-						<a href="/"><span class='glyphicon glyphicon-tags tags' aria-hidden="true"><span>golang</span></span></a>
-						<a href="/"><span class='glyphicon glyphicon-tags tags' aria-hidden="true"><span>golang</span></span></a>
-					</footer>
-				</div>
-				<div class="page-header">
-					<h4 class="article__title"><a href="">测试标题</a></h4>
-					<h6 class="text-muted">文章发表于 {{.Created}}，共有 {{.Views}} 次浏览， {{.ReplyCount}} 个评论</h6> 
-					<p class="article__content">
-						测试文本急急急解决急急急急急急急急急蜀都赋深度雷锋精神代理费蜀都赋sd卡福建是的看法但是的方式的发送的方式的发货速度快发货收快点和速度快恢复快速的恢复sd卡方式的发货sd卡和方式的富士康蜀都赋看电视福克斯点击回复开始的恢复开始电话费sd卡回复快速的和方式贷款和方式贷款和方式快递和方式快递和方式的开发和是肯定的......
-					</p>
-					<footer class="article_meta">
-						<a href="/"><span class='glyphicon glyphicon-tags tags' aria-hidden="true"><span>golang</span></span></a>
-						<a href="/"><span class='glyphicon glyphicon-tags tags' aria-hidden="true"><span>golang</span></span></a>
-						<a href="/"><span class='glyphicon glyphicon-tags tags' aria-hidden="true"><span>golang</span></span></a>
-					</footer>
-				</div>
-				<div class="page-header">
-					<h4 class="article__title"><a href="">测试标题</a></h4>
-					<h6 class="text-muted">文章发表于 {{.Created}}，共有 {{.Views}} 次浏览， {{.ReplyCount}} 个评论</h6> 
-					<p class="article__content">
-						测试文本急急急解决急急急急急急急急急蜀都赋深度雷锋精神代理费蜀都赋sd卡福建是的看法但是的方式的发送的方式的发货速度快发货收快点和速度快恢复快速的恢复sd卡方式的发货sd卡和方式的富士康蜀都赋看电视福克斯点击回复开始的恢复开始电话费sd卡回复快速的和方式贷款和方式贷款和方式快递和方式快递和方式的开发和是肯定的......
-					</p>
-					<footer class="article_meta">
-						<a href="/"><span class='glyphicon glyphicon-tags tags' aria-hidden="true"><span>golang</span></span></a>
-						<a href="/"><span class='glyphicon glyphicon-tags tags' aria-hidden="true"><span>golang</span></span></a>
-						<a href="/"><span class='glyphicon glyphicon-tags tags' aria-hidden="true"><span>golang</span></span></a>
-					</footer>
-				</div>
+			{{end}}
+
+			</div>
+			<div class="pagination">
+
+			    {{ str2html .PageStr }}<!-- |markdown -->
+
 			</div>	
 		</div>
+
 		<div class="col-md-4">
 			{{template "Tpl/T.right.tpl" .}}
 		</div>
@@ -73,5 +49,11 @@
 {{template "Tpl/T.footer.tpl" }}
 	<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
 	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		var liActive = $("div .pagination ul span").parent("li")
+		liActive.addClass('active');
+	});
+	</script>
 </body>
 </html>

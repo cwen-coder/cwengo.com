@@ -43,7 +43,8 @@ func (this *TopicController) Post() {
 	category := this.Input().Get("category")
 	labels := this.GetStrings("label[]")
 	content := this.Input().Get("content")
-	err := models.AddTopic(title, category, content, labels)
+	summery := this.Input().Get("summery")
+	err := models.AddTopic(title, category, summery, content, labels)
 	if err != nil {
 		beego.Error(err)
 	}
@@ -130,8 +131,9 @@ func (this *TopicController) EditTopicAct() {
 	title := this.Input().Get("title")
 	category := this.Input().Get("category")
 	labels := this.GetStrings("label[]")
+	summery := this.Input().Get("summery")
 	content := this.Input().Get("content")
-	err := models.EditTopic(tid, title, category, content, labels)
+	err := models.EditTopic(tid, title, category, summery, content, labels)
 	if err != nil {
 		beego.Error(err)
 	}

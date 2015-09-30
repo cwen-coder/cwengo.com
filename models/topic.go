@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func AddTopic(title, category, content string, labels []string) error {
+func AddTopic(title, category, summery, content string, labels []string) error {
 	label := ""
 	if len(labels) > 0 {
 		label = "$" + strings.Join(labels, "#$") + "#"
@@ -17,6 +17,7 @@ func AddTopic(title, category, content string, labels []string) error {
 	topic := &Topic{
 		Title:    title,
 		Category: category,
+		Summery:  summery,
 		Lables:   label,
 		Content:  content,
 		Created:  time.Now().Format("2006-01-02 15:04:05"),
@@ -69,6 +70,9 @@ func GetAllTopics(category, label string, isDesc bool, start, offset int) (topic
 		_, err = qs.Limit(offset, start).OrderBy("-created").All(&topics)
 	} else {
 		_, err = qs.Limit(offset, start).All(&topics)
+	}
+	for _, v := range topics {
+		v.Lables = strings.Replace(strings.Replace(v.Lables, "#", " ", -1), "$", "", -1)
 	}
 	return topics, err
 }
@@ -151,7 +155,7 @@ func GetTopic(tid string) (*Topic, error) {
 	return Labels, err
 }*/
 
-func EditTopic(tid, title, category, content string, labels []string) error {
+func EditTopic(tid, title, category, summery, content string, labels []string) error {
 	tidNum, err := strconv.ParseInt(tid, 10, 64)
 	label := ""
 	if len(labels) > 0 {
@@ -166,6 +170,7 @@ func EditTopic(tid, title, category, content string, labels []string) error {
 		topic.Title = title
 		topic.Category = category
 		topic.Lables = label
+		topic.Summery = summery
 		topic.Content = content
 		topic.Updated = time.Now().Format("2006-01-02 15:04:05")
 		_, err = o.Update(topic)

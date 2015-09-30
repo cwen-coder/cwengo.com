@@ -32,6 +32,10 @@
             {{end}}
             </div>
         </div>
+        <div class="form-group topic">
+            <label>博客概要</label>
+            <textarea class="form-control" name="summery" id="summery" rows="3">{{.Topic.Summery}}</textarea>
+        </div>
         <div class="wmd-panel form-group">
              <label>博客内容</label>
             <div id="wmd-button-bar"></div>

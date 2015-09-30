@@ -2,6 +2,7 @@ package models
 
 import (
 	"errors"
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 	"strconv"
@@ -66,4 +67,16 @@ func EditLabel(label_id, label_name string) error {
 	label.Title = label_name
 	_, err = o.Update(label)
 	return nil
+}
+
+func GetLabel(id string) string {
+	o := orm.NewOrm()
+	LabelId, err := strconv.ParseInt(id, 10, 64)
+	label := &Label{Id: LabelId}
+	qs := o.QueryTable("label")
+	err = qs.Filter("id", LabelId).One(label)
+	if err != nil {
+		beego.Error(err)
+	}
+	return label.Title
 }

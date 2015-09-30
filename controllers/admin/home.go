@@ -21,11 +21,7 @@ func (this *HomeController) Prepare() {
 }
 
 func (this *HomeController) Get() {
-	/*topics, err := models.GetAllTopics("", "", true, 0, 10)
-	if err != nil {
-		beego.Error(err)
-	}
-	this.Data["Topics"] = topics*/
+
 	this.Ctx.Request.ParseForm()
 
 	page, _ := strconv.Atoi(this.Ctx.Request.Form.Get("page"))
@@ -43,17 +39,7 @@ func (this *HomeController) Get() {
 	} else {
 		pageCount = totalCount/offset + 1
 	}
-	/*count := string(countInfo[0]["count(*)"])
-	totalCount, _ := strconv.Atoi(count)*/
-	/*newList := make([]map[string]interface{}, len(list))
-	for k, v := range list {
-		m := make(map[string]interface{})
-		m["id"] = v.Id
-		m["title"] = v.Title
-		m["content"] = v.Content
-		m["created"] = v.Created
-		newList[k] = m
-	}*/
+
 	this.Data["Topics"] = list
 	//分页配置
 	conf := utils.Config{

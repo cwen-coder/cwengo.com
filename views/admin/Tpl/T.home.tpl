@@ -28,7 +28,7 @@
           <td>{{.Updated}}</td>
           <th>{{.Views}}</th>
           <td>
-                <a href="javascript:;" class="topic_edit" section="{{.Id}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;
+                <a href="/admin/topic/EditTopicShow?tid={{.Id}}" class="topic_edit" section="{{.Id}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;
                 <a href="javascript:;" class="topic_del" section="{{.Id}}" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
           </td>
         </tr>

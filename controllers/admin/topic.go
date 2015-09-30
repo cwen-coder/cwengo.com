@@ -5,6 +5,8 @@ import (
 	/*"fmt"*/
 	/*"reflect"*/
 	"github.com/astaxie/beego"
+	"strconv"
+	"strings"
 )
 
 type TopicController struct {
@@ -61,4 +63,68 @@ func (this *TopicController) DelTopic() {
 	data["msg"] = "删除成功"
 	this.Ctx.Output.Json(data, true, true)
 	return
+}
+
+func (this *TopicController) EditTopicShow() {
+	tid := this.Input().Get("tid")
+	this.Data["Username"] = this.GetSession("username")
+	this.Data["toplicList"] = true
+	if tid == "" {
+		this.Layout = "admin/layout.html"
+		this.TplNames = "admin/Tpl/T.error.tpl"
+	} else {
+		this.Layout = "admin/layout.html"
+		this.TplNames = "admin/Tpl/T.editTopic.tpl"
+		topic, err := models.GetTopic(tid)
+		if err != nil {
+			beego.Error(err)
+			this.Redirect("/admin/home", 302)
+			return
+		}
+		this.Data["Topic"] = topic
+		Categories, err := models.GetAllCategories()
+		if err != nil {
+			beego.Error(err)
+		}
+		for _, v := range Categories {
+			cate, _ := strconv.Atoi(topic.Category)
+			if v.Id == int64(cate) {
+				v.IsSelected = true
+			} else {
+				v.IsSelected = false
+			}
+		}
+		this.Data["Categories"] = Categories
+		AllLabels, err := models.GetAllLabels()
+		Lables := strings.Split(topic.Lables, " ")
+		if len(Lables) > 0 {
+			for _, v := range AllLabels {
+				v.IsSelected = false
+				for _, s := range Lables {
+					lab, _ := strconv.Atoi(s)
+					if v.Id == int64(lab) {
+						v.IsSelected = true
+						break
+					}
+				}
+			}
+		}
+		this.Data["Labels"] = AllLabels
+		if err != nil {
+			beego.Error(err)
+		}
+	}
+}
+
+func (this *TopicController) EditTopicAct() {
+	tid := this.Input().Get("tid")
+	title := this.Input().Get("title")
+	category := this.Input().Get("category")
+	labels := this.GetStrings("label[]")
+	content := this.Input().Get("content")
+	err := models.EditTopic(tid, title, category, content, labels)
+	if err != nil {
+		beego.Error(err)
+	}
+	this.Redirect("/admin/home", 302)
 }

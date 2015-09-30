@@ -20,6 +20,7 @@ type Category struct {
 	TopicTime       string `orm:"index"`
 	TopicCount      int64
 	TopicLastUserId int64
+	IsSelected      bool
 }
 
 type Label struct {
@@ -30,6 +31,7 @@ type Label struct {
 	TopicTime       string `orm:"index"`
 	TopicCount      int64
 	TopicLastUserId int64
+	IsSelected      bool
 }
 
 type Topic struct {

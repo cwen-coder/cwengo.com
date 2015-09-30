@@ -46,20 +46,29 @@ func AddTopic(title, category, content string, labels []string) error {
 	return err
 }
 
-func GetAllTopics(category, lable string, isDesc bool) (topics []*Topic, err error) {
+/**
+ * Get all topics .
+ * @category  按分类获取
+ * @label   按标签获取
+ * @isDec   是否发布的时间
+ * @start   分页开始
+ * @offset  每页多少
+ */
+
+func GetAllTopics(category, label string, isDesc bool, start, offset int) (topics []*Topic, err error) {
 	o := orm.NewOrm()
 	topics = make([]*Topic, 0)
 	qs := o.QueryTable("topic")
 	if isDesc {
 		if len(category) > 0 {
-			qs = qs.Filter("category", category)
+			qs = qs.Filter("category", category).Limit(offset, start)
 		}
-		if len(lable) > 0 {
-			qs = qs.Filter("lables__contains", "$"+lable+"#")
+		if len(label) > 0 {
+			qs = qs.Filter("lables__contains", "$"+label+"#").Limit(offset, start)
 		}
-		_, err = qs.OrderBy("-created").All(&topics)
+		_, err = qs.Limit(offset, start).OrderBy("-created").All(&topics)
 	} else {
-		_, err = qs.All(&topics)
+		_, err = qs.Limit(offset, start).All(&topics)
 	}
 	return topics, err
 }
@@ -203,4 +212,10 @@ func EditTopic(tid, title, category, content string, labels []string) error {
 		}
 	}
 	return err
+}
+
+func GetAllTopicsCount() (int, error) {
+	o := orm.NewOrm()
+	cnt, err := o.QueryTable("topic").Count()
+	return int(cnt), err
 }

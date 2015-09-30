@@ -13,6 +13,15 @@ type TopicController struct {
 	beego.Controller
 }
 
+func (this *TopicController) Prepare() {
+	userid := this.GetSession("userid")
+	username := this.GetSession("username")
+	if userid == nil || username == nil {
+		this.Ctx.Redirect(302, "/admin/login")
+		return
+	}
+}
+
 func (this *TopicController) Get() {
 	this.Layout = "admin/layout.html"
 	this.TplNames = "admin/Tpl/T.addTopic.tpl"

@@ -25,3 +25,8 @@
 	}
 	del.init();
 })();
+
+$(document).ready(function() {
+	var liActive = $("div .pagination ul span").parent("li")
+	liActive.addClass('active');
+});

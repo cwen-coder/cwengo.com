@@ -9,6 +9,15 @@ type CategoryController struct {
 	beego.Controller
 }
 
+func (this *CategoryController) Prepare() {
+	userid := this.GetSession("userid")
+	username := this.GetSession("username")
+	if userid == nil || username == nil {
+		this.Ctx.Redirect(302, "/admin/login")
+		return
+	}
+}
+
 func (this *CategoryController) Get() {
 	this.Layout = "admin/layout.html"
 	this.TplNames = "admin/Tpl/T.category.tpl"

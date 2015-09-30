@@ -40,7 +40,8 @@
 
 <div class="pagination">
 
-    {{ .PageStr }}<!-- |markdown -->
+    {{ str2html .PageStr }}<!-- |markdown -->
 
 </div>
 <script type="text/javascript" src="/static/js/topic.js"></script>
+

@@ -9,6 +9,15 @@ type LabelController struct {
 	beego.Controller
 }
 
+func (this *LabelController) Prepare() {
+	userid := this.GetSession("userid")
+	username := this.GetSession("username")
+	if userid == nil || username == nil {
+		this.Ctx.Redirect(302, "/admin/login")
+		return
+	}
+}
+
 func (this *LabelController) Get() {
 	this.Layout = "admin/layout.html"
 	this.TplNames = "admin/Tpl/T.label.tpl"

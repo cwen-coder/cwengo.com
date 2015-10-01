@@ -75,11 +75,13 @@
 <div class="panel-heading">分类目录</div>
   	<!-- List group -->
   	<ul class="list-group">
+	{{range .Categories}}
+	    <li class="list-group-item"><a href="/">{{.Title}}</a></li>
 	    <li class="list-group-item"><a href="/">Cras justo odio</a></li>
 	    <li class="list-group-item"><a href="/">Cras justo odio</a></li>
 	    <li class="list-group-item"><a href="/">Cras justo odio</a></li>
 	    <li class="list-group-item"><a href="/">Cras justo odio</a></li>
-	    <li class="list-group-item"><a href="/">Cras justo odio</a></li>
+	{{end}}
   	</ul>
 </div>
 

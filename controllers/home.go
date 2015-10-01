@@ -78,6 +78,7 @@ func (this *MainController) Get() {
 	if pageStr == "404" {
 		this.Ctx.Redirect(302, "/")
 	}
+	this.Data["Categories"], _ = models.GetAllCategories()
 	this.Data["PageStr"] = "<ul class='pagination'>" + pageStr + "</ul>"
 	this.Data["IsHome"] = true
 	this.TplNames = "home.html"

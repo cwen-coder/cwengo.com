@@ -20,4 +20,5 @@ func init() {
 	beego.Router("/admin/topic/DelTopic", &admin.TopicController{}, "post:DelTopic")
 	beego.Router("/admin/topic/EditTopicShow", &admin.TopicController{}, "get:EditTopicShow")
 	beego.Router("/admin/topic/EditTopicAct", &admin.TopicController{}, "post:EditTopicAct")
+	beego.Router("/topic", &controllers.TopicController{})
 }

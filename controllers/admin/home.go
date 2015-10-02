@@ -32,7 +32,7 @@ func (this *HomeController) Get() {
 
 	start := (page - 1) * offset
 	list, _ := models.GetAllTopics("", "", true, start, offset)
-	totalCount, _ := models.GetAllTopicsCount()
+	totalCount, _ := models.GetAllTopicsCount("", "login.go")
 	var pageCount int
 	if totalCount%offset == 0 {
 		pageCount = totalCount / offset

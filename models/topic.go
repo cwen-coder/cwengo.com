@@ -47,6 +47,22 @@ func AddTopic(title, category, summery, content string, labels []string) error {
 	return err
 }
 
+func GetAllNewTopics() (topics []*Topic, err error) {
+	o := orm.NewOrm()
+	topics = make([]*Topic, 0)
+	qs := o.QueryTable("topic")
+	_, err = qs.Limit(6, 0).OrderBy("-created").All(&topics)
+	return topics, err
+}
+
+func GetAllViewsTopics() (topics []*Topic, err error) {
+	o := orm.NewOrm()
+	topics = make([]*Topic, 0)
+	qs := o.QueryTable("topic")
+	_, err = qs.Limit(6, 0).OrderBy("-views").All(&topics)
+	return topics, err
+}
+
 /**
  * Get all topics .
  * @category  按分类获取
@@ -55,7 +71,6 @@ func AddTopic(title, category, summery, content string, labels []string) error {
  * @start   分页开始
  * @offset  每页多少
  */
-
 func GetAllTopics(category, label string, isDesc bool, start, offset int) (topics []*Topic, err error) {
 	o := orm.NewOrm()
 	topics = make([]*Topic, 0)
@@ -219,8 +234,17 @@ func EditTopic(tid, title, category, summery, content string, labels []string) e
 	return err
 }
 
-func GetAllTopicsCount() (int, error) {
+func GetAllTopicsCount(category, label string) (int, error) {
 	o := orm.NewOrm()
-	cnt, err := o.QueryTable("topic").Count()
+	qs := o.QueryTable("topic")
+	var cnt int64
+	var err error
+	if len(category) > 0 {
+		cnt, err = qs.Filter("category", category).Count()
+	} else if len(label) > 0 {
+		cnt, err = qs.Filter("lables__contains", "$"+label+"#").Count()
+	} else {
+		cnt, err = qs.Count()
+	}
 	return int(cnt), err
 }

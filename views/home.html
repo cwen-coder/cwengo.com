@@ -12,21 +12,21 @@
 	<div class="container-content">
 		<div class="col-md-8">
 			<div class="article-list-header">
-				<h4>最新文章</h4>
+				<h4>{{.HomeTitle}}</h4>
 			</div>
 			<div class="article-list">
 			{{$LabelI := .LabelId}}
 			{{$LabelN := .Label}}
 			{{range $k,$v:=.Topics}}
 				<div class="page-header">
-					<h4 class="article__title"><a href="/">{{$v.Title}}</a></h4>
-					<h6 class="text-muted"> 文章发表于 {{$v.Created}}，共有 {{$v.Views}} 次浏览， 个评论</h6> 
+					<h4 class="article__title"><a href="/topic?topicId={{$v.Id}}">{{$v.Title}}</a></h4>
+					<h6 class="text-muted"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{$v.Created}}，共有 {{$v.Views}} 次浏览</h6> 
 					<p class="article__content">
 						{{$v.Summery}}
 					</p>
 					<footer class="article_meta">
 						{{range $c,$w:=index $LabelI $k}}
-						<a href="/{{$w}}"><span class='glyphicon glyphicon-tags tags' aria-hidden="true" ><span>{{index $LabelN $k $c}}</span></span></a>
+						<a href="/?label={{$w}}"><span class='glyphicon glyphicon-tags tags' aria-hidden="true" ><span>{{index $LabelN $k $c}}</span></span></a>
 						{{end}}
 						
 					</footer>

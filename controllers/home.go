@@ -14,7 +14,6 @@ type MainController struct {
 
 func (this *MainController) Get() {
 	this.Ctx.Request.ParseForm()
-
 	page, _ := strconv.Atoi(this.Ctx.Request.Form.Get("page"))
 	offset := 8
 	if page == 0 {
@@ -22,8 +21,10 @@ func (this *MainController) Get() {
 	}
 
 	start := (page - 1) * offset
-	list, _ := models.GetAllTopics("", "", true, start, offset)
-	totalCount, _ := models.GetAllTopicsCount()
+	cate := this.Input().Get("cate")
+	label := this.Input().Get("label")
+	list, _ := models.GetAllTopics(cate, label, true, start, offset)
+	totalCount, _ := models.GetAllTopicsCount(cate, label)
 	var pageCount int
 	if totalCount%offset == 0 {
 		pageCount = totalCount / offset
@@ -46,8 +47,19 @@ func (this *MainController) Get() {
 	this.Data["LabelId"] = LabelId
 	this.Data["Label"] = Label
 	//分页配置
+	var PageUrl string
+	if cate != "" {
+		PageUrl = "/?cate=" + cate
+		this.Data["HomeTitle"] = "分类：" + models.GetCategory(cate)
+	} else if label != "" {
+		PageUrl = "/?label=" + label
+		this.Data["HomeTitle"] = "标签：" + models.GetLabel(label)
+	} else {
+		PageUrl = "/"
+		this.Data["HomeTitle"] = "最新文章"
+	}
 	conf := utils.Config{
-		PageUrl:       "/",
+		PageUrl:       PageUrl,
 		PageSize:      1,
 		RowsNum:       pageCount,
 		AnchorClass:   "",
@@ -78,8 +90,12 @@ func (this *MainController) Get() {
 	if pageStr == "404" {
 		this.Ctx.Redirect(302, "/")
 	}
-	this.Data["Categories"], _ = models.GetAllCategories()
+
 	this.Data["PageStr"] = "<ul class='pagination'>" + pageStr + "</ul>"
+	this.Data["Categories"], _ = models.GetAllCategories()
+	this.Data["Labels"], err = models.GetAllLabels()
+	this.Data["NewTopics"], err = models.GetAllNewTopics()
+	this.Data["VIewsTopics"], err = models.GetAllViewsTopics()
 	this.Data["IsHome"] = true
 	this.TplNames = "home.html"
 }

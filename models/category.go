@@ -67,3 +67,15 @@ func EditCategory(category_id, category_name string) error {
 	_, err = o.Update(cate)
 	return nil
 }
+
+func GetCategory(category_id string) string {
+	o := orm.NewOrm()
+	CateId, err := strconv.ParseInt(category_id, 10, 64)
+	if err != nil {
+		return ""
+	}
+	cate := &Category{Id: CateId}
+	qs := o.QueryTable("category")
+	err = qs.Filter("id", category_id).One(cate)
+	return cate.Title
+}

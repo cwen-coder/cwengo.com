@@ -93,13 +93,23 @@ func CreateLinks(conf Config) (string, error) {
 
 	pageStr = full_tag_open
 	//first page
+	lenP := len(page_url)
 	if page_num > 1 {
-		pageStr += first_tag_open + "<a " + anchor_class + " href=\"" + page_url + "?page=1\" >首页</a>" + first_tag_close + "\n"
+		if page_url[lenP-1] == '/' {
+			pageStr += first_tag_open + "<a " + anchor_class + " href=\"" + page_url + "?page=1\" >首页</a>" + first_tag_close + "\n"
+		} else {
+			pageStr += first_tag_open + "<a " + anchor_class + " href=\"" + page_url + "&page=1\" >首页</a>" + first_tag_close + "\n"
+		}
+
 	}
 	//prev page
 	if page_num > 1 {
 		n := page_num - 1
-		pageStr += prev_tag_open + "<a " + anchor_class + " href=\"" + page_url + "?page=" + strconv.Itoa(n) + "\" >上一页</a>" + prev_tag_close + "\n"
+		if page_url[lenP-1] == '/' {
+			pageStr += prev_tag_open + "<a " + anchor_class + " href=\"" + page_url + "?page=" + strconv.Itoa(n) + "\" >上一页</a>" + prev_tag_close + "\n"
+		} else {
+			pageStr += prev_tag_open + "<a " + anchor_class + " href=\"" + page_url + "&page=" + strconv.Itoa(n) + "\" >上一页</a>" + prev_tag_close + "\n"
+		}
 	}
 	//pages
 	for i := 1; i <= pages; i++ {
@@ -127,18 +137,31 @@ func CreateLinks(conf Config) (string, error) {
 		if i == page_num {
 			pageStr += cur_tag_open + "<span" + current_class + ">" + strconv.Itoa(i) + "</span>" + cur_tag_close + "\n"
 		} else if i >= pl && i <= pr {
-			pageStr += num_tag_open + "<a " + anchor_class + " href=\"" + page_url + "?page=" + strconv.Itoa(i) + "\" >" + strconv.Itoa(i) + "</a>" + num_tag_close + "\n"
+			if page_url[lenP-1] == '/' {
+				pageStr += num_tag_open + "<a " + anchor_class + " href=\"" + page_url + "?page=" + strconv.Itoa(i) + "\" >" + strconv.Itoa(i) + "</a>" + num_tag_close + "\n"
+			} else {
+				pageStr += num_tag_open + "<a " + anchor_class + " href=\"" + page_url + "&page=" + strconv.Itoa(i) + "\" >" + strconv.Itoa(i) + "</a>" + num_tag_close + "\n"
+			}
+
 		}
 	}
 
 	//next page
 	if page_num < pages {
 		n := page_num + 1
-		pageStr += next_tag_open + "<a " + anchor_class + " href=\"" + page_url + "?page=" + strconv.Itoa(n) + "\" >下一页</a>" + next_tag_close + "\n"
+		if page_url[lenP-1] == '/' {
+			pageStr += next_tag_open + "<a " + anchor_class + " href=\"" + page_url + "?page=" + strconv.Itoa(n) + "\" >下一页</a>" + next_tag_close + "\n"
+		} else {
+			pageStr += next_tag_open + "<a " + anchor_class + " href=\"" + page_url + "&page=" + strconv.Itoa(n) + "\" >下一页</a>" + next_tag_close + "\n"
+		}
 	}
 	//end page
 	if page_num < pages {
-		pageStr += last_tag_open + "<a " + anchor_class + " href=\"" + page_url + "?page=" + strconv.Itoa(pages) + "\" >末页</a>" + last_tag_close
+		if page_url[lenP-1] == '/' {
+			pageStr += last_tag_open + "<a " + anchor_class + " href=\"" + page_url + "?page=" + strconv.Itoa(pages) + "\" >末页</a>" + last_tag_close
+		} else {
+			pageStr += last_tag_open + "<a " + anchor_class + " href=\"" + page_url + "&page=" + strconv.Itoa(pages) + "\" >末页</a>" + last_tag_close
+		}
 	}
 
 	pageStr += full_tag_close

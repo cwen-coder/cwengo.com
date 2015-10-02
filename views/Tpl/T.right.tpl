@@ -30,43 +30,44 @@
   	<div class="panel-heading padding-tab">
   	      <div class="ms-top ">
   	        <ul class="hd" id="tab">
-  	          <li class="cur"><a href="/">点击排行</a></li>
-  	          <li><a href="/">最新文章</a></li>
-  	          <li><a href="/">最新评论</a></li>
+  	          <li class="cur"><a href="#">点击排行</a></li>
+  	          <li><a href="#">最新文章</a></li>
+  	          <li><a href="#">最新评论</a></li>
   	        </ul>
   	      </div>
   	      </div>
   	      <div class="ms-main" id="ms-main">
   	        <div style="display: block;" class="bd bd-news" >
   	          <ul>
-  	            <li class="list-group-item"><a href="/" target="_blank">住在手机里的朋友</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">教你怎样用欠费手机拨打电话</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">原来以为，一个人的勇敢是，删掉他的手机号码...</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">手机的16个惊人小秘密，据说99.999%的人都不知</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">你面对的是生活而不是手机</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">豪雅手机正式发布! 在法国全手工打造的奢侈品</a></li>
+  	           {{ range .VIewsTopics}}
+                        <li class="list-group-item"><a href="/topic?topicId={{.Id}}" target="_blank">{{.Title}}</a></li>
+                 {{end}}
   	          </ul>
   	        </div>
   	        <div  class="bd bd-news">
   	          <ul>
-  	            <li class="list-group-item"><a href="/" target="_blank">原来以为，一个人的勇敢是，删掉他的手机号码...</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">手机的16个惊人小秘密，据说99.999%的人都不知</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">住在手机里的朋友</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">教你怎样用欠费手机拨打电话</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">你面对的是生活而不是手机</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">豪雅手机正式发布! 在法国全手工打造的奢侈品</a></li>
+                {{ range .NewTopics}}
+  	            <li class="list-group-item"><a href="/topic?topicId={{.Id}}" target="_blank">{{.Title}}</a></li>
+  	           {{end}}
   	          </ul>
   	        </div>
-  	        <div class="bd bd-news">
-  	          <ul>
-  	            <li class="list-group-item"><a href="/" target="_blank">手机的16个惊人小秘密，据说99.999%的人都不知</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">你面对的是生活而不是手机</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">住在手机里的朋友</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">豪雅手机正式发布! 在法国全手工打造的奢侈品</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">教你怎样用欠费手机拨打电话</a></li>
-  	            <li class="list-group-item"><a href="/" target="_blank">原来以为，一个人的勇敢是，删掉他的手机号码...</a></li>
-  	          </ul>
+
+  	        <div class="bd bd-news ds-recent-comments" data-num-items="6" data-show-avatars="0" data-show-time="1" data-show-title="0" data-show-admin="1" data-excerpt-length="70">
+  	        
   	        </div>
+            <script type="text/javascript">
+            var duoshuoQuery = {short_name:"cwen"};
+              (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] 
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+              })();
+
+              </script>
+            <!-- 多说公共JS代码 end -->
   	      </div>
   	      <!--ms-main end --> 
 </div>
@@ -76,11 +77,7 @@
   	<!-- List group -->
   	<ul class="list-group">
 	{{range .Categories}}
-	    <li class="list-group-item"><a href="/">{{.Title}}</a></li>
-	    <li class="list-group-item"><a href="/">Cras justo odio</a></li>
-	    <li class="list-group-item"><a href="/">Cras justo odio</a></li>
-	    <li class="list-group-item"><a href="/">Cras justo odio</a></li>
-	    <li class="list-group-item"><a href="/">Cras justo odio</a></li>
+	    <li class="list-group-item"><a href="/?cate={{.Id}}">{{.Title}}</a></li>
 	{{end}}
   	</ul>
 </div>
@@ -89,22 +86,15 @@
 	<div class="panel-heading">标签云</div>
 	<div class="cloud">
 	      <ul>
-	        <li><a href="/">个人博客</a></li>
-	        <li><a href="/">web开发</a></li>
-	        <li><a href="/">前端设计</a></li>
-	        <li><a href="/">Html</a></li>
-	        <li><a href="/">CSS3</a></li>
-	        <li><a href="/">Html5+css3</a></li>
-	        <li><a href="/">百度</a></li>
-	        <li><a href="/">Javasript</a></li>
-	        <li><a href="/">web开发</a></li>
-	        <li><a href="/">前端设计</a></li>
-	        <li><a href="/">Html</a></li>
-	        <li><a href="/">CSS3</a></li>
-	        <li><a href="/">Html5+css3</a></li>
-	        <li><a href="/">百度</a></li>
+        {{range .Labels}}
+	        <li><a href="/?label={{.Id}}">{{.Title}}</a></li>
+          {{end}}
+
 	      </ul>
 
 	</div>
 	<br>
 </div>
+
+
+

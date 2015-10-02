@@ -16,8 +16,8 @@ a:hover {
 	padding-left: 5%;
 	padding-right: 5%;
 }
-.container .navbar-header {
-	 padding-left: 5%; 
+.container .navbar-header .brand-img{
+	 padding-top: 0px;  
 } 
 
 .container .pull-right {
@@ -95,3 +95,11 @@ footer .container .footer{
   	border-top: 1px solid #D4D4D4; 
 }
 
+.ds-recent-comments li.ds-comment  {
+    height: 44px;
+    line-height:30px;
+}
+.ds-recent-comments li.ds-comment a {
+  padding-left: 10px;
+  font-size: 14px;
+}

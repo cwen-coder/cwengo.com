@@ -6,6 +6,7 @@
 		         <span class="icon-bar"></span>
 		         <span class="icon-bar"></span>
 		         <span class="icon-bar"></span>
+
 		     </button>
 			 <a class="navbar-brand brand-img" href="/"><img src="/static/img/cwen.png" alt="" ></a>
 		     <a class="navbar-brand" href="/" ><big>沉稳，不乏可爱</big></a>	
@@ -18,6 +19,5 @@
 				<li {{if .IsHome}} class="active" {{end}} ><a href="/">主页</a></li>
 				<li {{if .IsArchive}} class="active" {{end}}><a href="/archive">文章归档</a></li>
 				<li {{if .IsAbout}} class="active" {{end}}><a href="/about">关于</a></li>
-				<li></li>
 			</ul>
 		</div>

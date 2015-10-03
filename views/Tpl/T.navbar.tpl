@@ -1,5 +1,5 @@
 
-<div class="navbar-header" display="inline" role="navigation">
+<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" 
 		         data-target="#example-navbar-collapse">
 		         <span class="sr-only">切换导航</span>

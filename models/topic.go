@@ -62,6 +62,13 @@ func GetAllViewsTopics() (topics []*Topic, err error) {
 	_, err = qs.Limit(6, 0).OrderBy("-views").All(&topics)
 	return topics, err
 }
+func GetAllArchiveTopics() (topics []*Topic, err error) {
+	o := orm.NewOrm()
+	topics = make([]*Topic, 0)
+	qs := o.QueryTable("topic")
+	_, err = qs.OrderBy("-created").All(&topics)
+	return topics, err
+}
 
 /**
  * Get all topics .

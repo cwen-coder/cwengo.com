@@ -5,16 +5,15 @@ import (
 	"github.com/astaxie/beego"
 )
 
-type ArchiveController struct {
+type AboutController struct {
 	beego.Controller
 }
 
-func (this *ArchiveController) Get() {
+func (this *AboutController) Get() {
+	this.Data["IsAbout"] = true
 	this.Data["Categories"], _ = models.GetAllCategories()
 	this.Data["Labels"], _ = models.GetAllLabels()
 	this.Data["NewTopics"], _ = models.GetAllNewTopics()
 	this.Data["VIewsTopics"], _ = models.GetAllViewsTopics()
-	this.Data["IsArchive"] = true
-	this.Data["ArchiveTopics"], _ = models.GetAllArchiveTopics()
-	this.TplNames = "archive.html"
+	this.TplNames = "about.html"
 }

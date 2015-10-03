@@ -30,9 +30,9 @@
   	<div class="panel-heading padding-tab">
   	      <div class="ms-top ">
   	        <ul class="hd" id="tab">
-  	          <li class="cur"><a href="#">点击排行</a></li>
+  	          <li class="cur"><a href="#" >点击排行</a></li>
   	          <li><a href="#">最新文章</a></li>
-  	          <li><a href="#">最新评论</a></li>
+  	          <li><a href="#" >最新评论</a></li>
   	        </ul>
   	      </div>
   	      </div>

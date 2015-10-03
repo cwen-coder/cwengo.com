@@ -16,8 +16,8 @@
 		<div class="pull-right">
 			<ul class="nav navbar-nav">
 				<li {{if .IsHome}} class="active" {{end}} ><a href="/">主页</a></li>
-				<li ><a href="/">文章归档</a></li>
-				<li ><a href="/">博主</a></li>
+				<li {{if .IsArchive}} class="active" {{end}}><a href="/archive">文章归档</a></li>
+				<li {{if .IsAbout}} class="active" {{end}}><a href="/about">关于</a></li>
 				<li></li>
 			</ul>
 		</div>

@@ -14,7 +14,7 @@ type TopicController struct {
 func (this *TopicController) Get() {
 	topicId := this.Input().Get("topicId")
 	if topicId == "" {
-
+		this.TplNames = "error.html"
 	} else {
 		topic, err := models.GetTopic(topicId)
 		if err != nil {

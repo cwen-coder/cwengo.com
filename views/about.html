@@ -1,0 +1,73 @@
+{{template "Tpl/T.header.tpl" }}
+	<title>关于－沉稳，不乏可爱</title>
+	<link rel="stylesheet" href="/static/css/archive.css" />
+</head>
+<body>
+<div class="container">
+	<nav class="navbar navbar-default" role="navigation">
+		{{template "Tpl/T.navbar.tpl" .}}
+	</nav>	
+</div>
+
+<div class="container">
+	<div class="container-content">
+		<div class="col-md-8">
+			<div class="article-list-header">
+				<h4>关于CWen</h4>
+			</div>
+			<br>
+			<br>
+			<h4>CWen何许人也</h4>
+			<li>90后、学生党、极简主义、有点偏执</li>
+			<li>计算机菜鸟，对程序开发充满热爱，总是沉醉于Coding的过程中不能自拔</li>
+			<li>玩过一段时间ACM，后来转向Web开发，自学HTML、CSS、JavaScript，选择PHP作为后端语言</li>
+			<li>用PHP为实验室、社团写过几个应用，一直是小打小闹</li>
+			<li>在2015年5月首次接触<a href="https://golang.org">Go</a>，开始自学Go语言，一发不可收拾</li>
+			<li>在学习Go Web编程的过程中，使用astaxie的<a href="http://beego.me">beego</a>框架完成了<a href="http://cwengo.com">小站</a></li>
+			<li>希望在Go语言上不仅仅是Web</li>
+			<br>
+			<br>
+			<h4>CWen正在做什么</h4>
+			<li>正在看《JavaScript高级程序设计》</li>
+			<li>继续学习Go Web、Go网络编程</li>
+			<li>深入学习<a href="https://golang.org/pkg/">Go Packages</a></li>
+			<li>抓起算法，希望在大三下学期找到实习</li>
+			<br>
+			<br>
+			<h4>联系CWen</h4>
+			<li>Github：<a href="https://github.com/yin-coder">https://github.com/yin-coder</a></li>
+			<li>邮箱：<a href="mailto:yincwengo@gmail.com">yincwengo@gmail.com</a></li>
+			<li>新浪微博：<a href="http://weibo.com/u/5058783130">CWen_Yin</a></li>
+			<li>QQ：172569856</li>
+			<li>微信：fly063X</li>
+			<br>
+			<br>
+			<h4>最后说两句</h4>
+			<p>借用<a href="http://wuwen.org">无闻</a>大神博客里的一句话：“追逐自由的学术境界，为了技术的精湛而坚持不懈”！</p>
+			<br>
+			<br>
+			<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0000" data-title="关于" data-url="http://cwengo.com/about"></div>
+			<!-- 多说评论框 end -->
+			<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+			<script type="text/javascript">
+			var duoshuoQuery = {short_name:"cwen"};
+				(function() {
+					var ds = document.createElement('script');
+					ds.type = 'text/javascript';ds.async = true;
+					ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+					ds.charset = 'UTF-8';
+					(document.getElementsByTagName('head')[0] 
+					 || document.getElementsByTagName('body')[0]).appendChild(ds);
+				})();
+				</script>
+			<!-- 多说公共JS代码 end -->
+		</div>
+		<div class="col-md-4">
+			{{template "Tpl/T.right.tpl" .}}
+		</div>
+	</div>
+</div>
+{{template "Tpl/T.footer.tpl" }}
+</body>
+</html>

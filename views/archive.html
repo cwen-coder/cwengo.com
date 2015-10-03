@@ -1,0 +1,53 @@
+{{template "Tpl/T.header.tpl" }}
+	<title>文章归档－沉稳，不乏可爱</title>
+	<link rel="stylesheet" href="/static/css/archive.css" />
+</head>
+<body>
+<div class="container">
+	<nav class="navbar navbar-default" role="navigation">
+		{{template "Tpl/T.navbar.tpl" .}}
+	</nav>	
+</div>
+
+<div class="container">
+	<div class="container-content">
+		<div class="col-md-8">
+			<div class="article-list-header">
+				<h4>文章归档</h4>
+			</div>
+			<div class="article-list">
+			{{range $k,$v:=.ArchiveTopics}}
+				<div class="page-header">
+					<h4 class="article__title"><a href="/topic?topicId={{$v.Id}}">{{$v.Title}}</a></h4>
+					<h6 class="text-muted"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{$v.Created}}，共有 {{$v.Views}} 次浏览</h6> 
+				</div>
+			{{end}}
+
+			</div>
+		</div>
+		<div class="col-md-4">
+			{{template "Tpl/T.right.tpl" .}}
+		</div>
+	</div>
+</div>
+{{template "Tpl/T.footer.tpl" }}
+	<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		(function() {
+			var preYear = "";
+			$(".col-md-8 .article-list .page-header").each(function(index) {
+				var year = $(this).find("h6").text().substr(1,4);
+				if(index == 0) {
+					var add = "<h2 class='archives-year'>"+year+"</h2>";
+					$(this).prepend(add);
+				} else if(preYear != year){
+					var add = "<h2 class='archives-year'>"+year+"</h2>";
+					$(this).prepend(add);
+				}
+				preYear = year;
+			});
+		})();
+	</script>
+</body>
+</html>

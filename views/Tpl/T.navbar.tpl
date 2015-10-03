@@ -8,7 +8,7 @@
 		         <span class="icon-bar"></span>
 
 		     </button>
-			<!--  <a class="navbar-brand brand-img" href="/"><img src="/static/img/cwen.png" alt="" ></a> -->
+			 <a class="navbar-brand brand-img" href="/"><img src="/static/img/cwen.png" alt="" ></a>
 		     <a class="navbar-brand" href="/" ><big>沉稳，不乏可爱</big></a>	
 		</div>
 		<!-- <div>

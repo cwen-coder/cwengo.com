@@ -11,9 +11,9 @@
 			 <a class="navbar-brand brand-img" href="/"><img src="/static/img/cwen.png" alt="" ></a>
 		     <a class="navbar-brand" href="/" ><big>沉稳，不乏可爱</big></a>	
 		</div>
-		<div>
+		<!-- <div>
 			<p class="navbar-text">CWen留下的痕迹</p>
-		</div>
+		</div> -->
 		<div class="pull-right">
 			<ul class="nav navbar-nav">
 				<li {{if .IsHome}} class="active" {{end}} ><a href="/">主页</a></li>

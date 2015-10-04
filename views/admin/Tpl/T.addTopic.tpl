@@ -1,9 +1,6 @@
-<link rel="stylesheet" type="text/css" href="/static/css/demo.css" />
+<!-- <link rel="stylesheet" type="text/css" href="/static/css/demo.css" /> -->
 <link rel="stylesheet" type="text/css" href="/static/css/topic.css" />
-        
-<script type="text/javascript" src="/static/js/Markdown.Converter.js"></script>
-<script type="text/javascript" src="/static/js/Markdown.Sanitizer.js"></script>
-<script type="text/javascript" src="/static/js/Markdown.Editor.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-markdown.min.css">
 <div class="row-fluid">
 <div class="well">
     <div id="myTabContent" class="tab-content">
@@ -33,12 +30,11 @@
         </div>
       <div class="form-group topic">
           <label>博客概要</label>
-          <textarea class="form-control" name="summery" id="summery" rows="3"></textarea>
+          <textarea class="form-control" name="summery" id="summery" data-provide="markdown"  rows="12"></textarea>
       </div>
-        <div class="wmd-panel form-group">
+        <div class="form-group topic">
 			       <label>博客内容</label>
-            <div id="wmd-button-bar"></div>
-            <textarea name="content" class="wmd-input" id="wmd-input"></textarea>
+            <textarea  class="form-control" name="content"  data-provide="markdown"  rows="12"  ></textarea>
         </div>
         <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
         <div class="btn-toolbar">
@@ -72,10 +68,6 @@
 
 </div>
   </div>
-<script type="text/javascript">
-(function () {
-      var converter1 = Markdown.getSanitizingConverter();
-      var editor1 = new Markdown.Editor(converter1);
-      editor1.run();
-})();
-</script>
+  <script type="text/javascript" src="/static/js/markdown.js"></script>
+  <script  type="text/javascript"  src="/static/js/to-markdown.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap-markdown.js"></script>

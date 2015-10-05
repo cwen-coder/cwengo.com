@@ -58,8 +58,8 @@
         
 		</div>
     </form>
-     <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
- <script type="text/javascript" src="/static/js/jquery.base64.js"></script>
+  <!--    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
+   <script type="text/javascript" src="/static/js/jquery.base64.js"></script> -->
     <script type="text/javascript">
         function checkInput() {
           var title = document.getElementById("title");

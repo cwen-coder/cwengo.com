@@ -32,7 +32,7 @@ func (this *HomeController) Get() {
 
 	start := (page - 1) * offset
 	list, _ := models.GetAllTopics("", "", true, start, offset)
-	totalCount, _ := models.GetAllTopicsCount("", "login.go")
+	totalCount, _ := models.GetAllTopicsCount("", "")
 	var pageCount int
 	if totalCount%offset == 0 {
 		pageCount = totalCount / offset
@@ -43,7 +43,7 @@ func (this *HomeController) Get() {
 	this.Data["Topics"] = list
 	//分页配置
 	conf := utils.Config{
-		PageUrl:       "/admin/home",
+		PageUrl:       "/admin/home/",
 		PageSize:      1,
 		RowsNum:       pageCount,
 		AnchorClass:   "",
@@ -72,7 +72,7 @@ func (this *HomeController) Get() {
 	}
 
 	if pageStr == "404" {
-		this.Ctx.Redirect(302, "/admin/home")
+		this.Ctx.Redirect(302, "/admin/home/")
 	}
 	this.Data["PageStr"] = "<ul class='pagination'>" + pageStr + "</ul>"
 	this.Data["Username"] = this.GetSession("username")

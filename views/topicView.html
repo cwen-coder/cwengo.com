@@ -1,5 +1,6 @@
 {{template "Tpl/T.header.tpl" }}
 	<title>{{.Topic.Title}}－沉稳，不乏可爱</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-markdown.min.css">
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -17,9 +18,9 @@
 				<div>
 					<h6 class="text-muted"> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{.Topic.Created}}，共有 {{.Topic.Views}} 次浏览</h6> 
 					<br>
-					<p class="article__content">
-					{{.Topic.Content}}
-				</p>
+					<p class="">
+							{{str2html .Topic.Content}}
+				     </p>
 				</div>
 				<br>
 				<footer class="article_meta">
@@ -55,4 +56,15 @@
 	</div>
 </div>
 {{template "Tpl/T.footer.tpl" }}
+<!-- <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/markdown.js"></script>
+<script type="text/javascript"  src="/static/js/to-markdown.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap-markdown.js"></script> -->
+<!-- <script type="text/javascript" src="/static/js/marked.js"></script> 
+<script>
+var text = document.getElementById("content").text;
+    document.getElementById('content').innerHTML =
+      marked(text);
+  </script> -->
 </body>

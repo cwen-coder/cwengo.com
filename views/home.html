@@ -21,8 +21,8 @@
 				<div class="page-header">
 					<h4 class="article__title"><a href="/topic?topicId={{$v.Id}}">{{$v.Title}}</a></h4>
 					<h6 class="text-muted"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{$v.Created}}，共有 {{$v.Views}} 次浏览</h6> 
-					<p class="article__content">
-						{{$v.Summery}}
+					<p class="">
+						{{str2html $v.Summery}}
 					</p>
 					<footer class="article_meta">
 						{{range $c,$w:=index $LabelI $k}}

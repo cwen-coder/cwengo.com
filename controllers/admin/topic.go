@@ -4,6 +4,7 @@ import (
 	"cwengo.com/models"
 	/*"fmt"*/
 	/*"reflect"*/
+	/*"encoding/base64"*/
 	"github.com/astaxie/beego"
 	"strconv"
 	"strings"
@@ -42,8 +43,11 @@ func (this *TopicController) Post() {
 	title := this.Input().Get("title")
 	category := this.Input().Get("category")
 	labels := this.GetStrings("label[]")
+	/*content, _ := base64.StdEncoding.DecodeString(this.GetString("content"))*/
 	content := this.Input().Get("content")
 	summery := this.Input().Get("summery")
+	/*fmt.Println(content, summery)*/
+	/*return*/
 	err := models.AddTopic(title, category, summery, content, labels)
 	if err != nil {
 		beego.Error(err)

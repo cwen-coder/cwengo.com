@@ -160,9 +160,10 @@ func GetTopic(tid string) (*Topic, error) {
 		topic.Lables, "#", " ", -1), "$", "", -1)
 	n := len(topic.Lables)
 	if n == 0 {
-		n = 1
+		topic.Lables = nil
+	} else {
+		topic.Lables = topic.Lables[0 : n-1]
 	}
-	topic.Lables = topic.Lables[0 : n-1]
 	return topic, nil
 }
 

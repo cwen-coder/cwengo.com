@@ -1,6 +1,7 @@
 {{template "Tpl/T.header.tpl" }}
 	<title>{{.Topic.Title}}－沉稳，不乏可爱</title>
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-markdown.min.css">
+	<script type="text/javascript" src="/static/js/showdown.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -19,7 +20,13 @@
 					<h6 class="text-muted"> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{.Topic.Created}}，共有 {{.Topic.Views}} 次浏览</h6> 
 					<br>
 					<p class="">
-							{{str2html .Topic.Content}}
+							
+							<script>
+								var converter = new showdown.Converter();
+							    	text  = {{str2html .Topic.Content}};
+							    	content = converter.makeHtml(text);
+							    	document.write(content);
+							</script>
 				     </p>
 				</div>
 				<br>

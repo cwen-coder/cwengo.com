@@ -31,19 +31,19 @@
         </div>
         <div class="form-group topic">
             <label>博客概要</label>
-           <!--  <textarea class="form-control" name="summery" id="summery" data-provide="markdown"  rows="12">{{.Topic.Summery}}</textarea> -->
+            <textarea class="form-control" name="summery" id="summery" data-provide="markdown"  rows="12">{{.Topic.Summery}}</textarea>
          <!--    <script id="summery" name="summery" class = "UEditor" type="text/plain">{{str2html .Topic.Summery}}</script> -->
-            <script type="text/javascript" charset="utf-8">
+          <!--   <script type="text/javascript" charset="utf-8">
                         window.UEDITOR_HOME_URL = "/static/ueditor/";
                       </script>
-             <textarea id="summery" name="summery">{{str2html .Topic.Summery}}</textarea>
+             <textarea id="summery" name="summery">{{str2html .Topic.Summery}}</textarea> -->
         </div>
         <div class="form-group topic">
              <label>博客内容</label>
             <!-- <div id="wmd-button-bar"></div> -->
-            <!-- <textarea class="form-control" name="content"  data-provide="markdown"  rows="12">{{.Topic.Content}}</textarea> -->
+            <textarea class="form-control" name="content"  data-provide="markdown"  rows="12">{{.Topic.Content}}</textarea>
            <!--  <script id="content" name="content" class = "UEditor" type="text/plain">{{str2html .Topic.Content}}</script> -->
-            <script type="text/javascript" charset="utf-8">
+            <!-- <script type="text/javascript" charset="utf-8">
                         window.UEDITOR_HOME_URL = "/static/ueditor/";
                       </script>
                       <script type="text/javascript" src="/static/ueditor/ueditor.config.js"></script>
@@ -53,13 +53,18 @@
                         var options = {"fileUrl":"/admin/article/upload","filePath":"","imageUrl":"/admin/article/upload","imagePath":"","initialFrameWidth":"90%","initialFrameHeight":"400"};
                         var ue = UE.getEditor("content", options);
                         var ue = UE.getEditor("summery", options);
-                      </script>
+                      </script> -->
         </div>
         <div class="btn-toolbar">
           <button class="btn btn-primary" type="submit" onclick="return checkInput();"><i class="icon-save" ></i> 提交</button>
         
     </div>
     </form>
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/markdown.js"></script>
+  <script  type="text/javascript"  src="/static/js/to-markdown.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap-markdown.js"></script>
     <script type="text/javascript">
         function checkInput() {
           var title = document.getElementById("title");
@@ -79,7 +84,7 @@
 
 </div>
   </div>
-<!--   <script type="text/javascript" src="/static/js/markdown.js"></script>
-<script  type="text/javascript"  src="/static/js/to-markdown.js"></script>
-<script type="text/javascript" src="/static/js/bootstrap-markdown.js"></script> -->
+
+
+
 <!--   <script type="text/javascript" src="/static/js/jquery.hotkeys.js"></script> -->

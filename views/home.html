@@ -1,6 +1,7 @@
 {{template "Tpl/T.header.tpl" }}
 	<title>首页－沉稳，不乏可爱</title>
 </head>
+<script type="text/javascript" src="/static/js/showdown.min.js"></script>
 <body>
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container">
@@ -22,7 +23,12 @@
 					<h4 class="article__title"><a href="/topic?topicId={{$v.Id}}">{{$v.Title}}</a></h4>
 					<h6 class="text-muted"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{$v.Created}}，共有 {{$v.Views}} 次浏览</h6> 
 					<p class="">
-						{{str2html $v.Summery}}
+					<script>
+						var converter = new showdown.Converter();
+					    	text  = {{str2html $v.Summery}};
+					    	summery = converter.makeHtml(text);
+					    	document.write(summery);
+					</script>
 					</p>
 					<footer class="article_meta">
 						{{range $c,$w:=index $LabelI $k}}
@@ -49,6 +55,8 @@
 {{template "Tpl/T.footer.tpl" }}
 	<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
 	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+
+
 	<script>
 	$(document).ready(function() {
 		var liActive = $("div .pagination ul span").parent("li")

@@ -41,7 +41,7 @@ type Topic struct {
 	Category   string
 	Lables     string
 	Summery    string `orm:"site(1000)"`
-	Content    string `orm:"site(6000)"`
+	Content    string `orm:"site(10000)"`
 	Attachment string
 	Created    string `orm:"index"`
 	Updated    string `orm:"index"`

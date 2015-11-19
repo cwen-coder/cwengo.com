@@ -80,3 +80,15 @@ func GetLabel(id string) string {
 	}
 	return label.Title
 }
+
+func GetLabel1(id string) *Label {
+	o := orm.NewOrm()
+	LabelId, err := strconv.ParseInt(id, 10, 64)
+	label := &Label{Id: LabelId}
+	qs := o.QueryTable("label")
+	err = qs.Filter("id", LabelId).One(label)
+	if err != nil {
+		beego.Error(err)
+	}
+	return label
+}

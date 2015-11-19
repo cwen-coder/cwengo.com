@@ -31,8 +31,9 @@
 				</div>
 				<br>
 				<footer class="article_meta">
-					{{range .Labels}}
-					<a href="/?label={{.Id}}"><span class='glyphicon glyphicon-tags tags' aria-hidden="true" ><span>{{.Title}}</span></span></a>
+					{{range .Label}}
+					<a href="/?label={{.Id}}"><span class='glyphicon glyphicon-tags tags' aria-hidden="true" ><span>{{.Name}}</span></span></a>
+
 					{{end}}
 					</footer>
 					<br>

@@ -4,11 +4,17 @@ import (
 	"cwengo.com/models"
 	"github.com/astaxie/beego"
 	/*"strconv"*/
+
 	"strings"
 )
 
 type TopicController struct {
 	beego.Controller
+}
+
+type MyLabel struct {
+	Name string
+	Id   string
 }
 
 func (this *TopicController) Get() {
@@ -24,15 +30,22 @@ func (this *TopicController) Get() {
 		}
 		this.Data["Topic"] = topic
 		this.Data["Category"] = models.GetCategory(topic.Category)
-		AllLabels := make([]string, 10)
+		//AllLabels := make([]string, 10)
 		Lables := strings.Split(topic.Lables, " ")
+		var MyLables []MyLabel
+
 		if len(Lables) > 0 {
-			for i, n := 0, len(Lables); i < n-1; i++ {
-				AllLabels[i] = models.GetLabel(Lables[i])
+			for i, n := 0, len(Lables); i < n; i++ {
+				//AllLabels[i] = models.GetLabel(Lables[i])
+				LabelOne := MyLabel{
+					Name: models.GetLabel(Lables[i]),
+					Id:   Lables[i],
+				}
+				MyLables = append(MyLables, LabelOne)
 			}
-			this.Data["LablesId"] = Lables[0 : len(Lables)-1]
+			//this.Data["LablesId"] = Lables[0:len(Lables)]
 		}
-		this.Data["Label"] = AllLabels
+		this.Data["Label"] = MyLables
 		if err != nil {
 			beego.Error(err)
 		}

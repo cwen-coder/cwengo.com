@@ -58,7 +58,7 @@ type TopicLabel struct {
 func RegisterDB() {
 	orm.RegisterModel(new(Admin), new(Category), new(Topic), new(Label), new(TopicLabel))
 	orm.RegisterDriver("mysql", orm.DR_MySQL)
-	orm.RegisterDataBase("default", "mysql", "root:yin123@/cwengo.com?charset=utf8")
+	orm.RegisterDataBase("default", "mysql", "000000:000000@/cwengo.com?charset=utf8")
 }
 
 func GetAdminInfo(username string) (admin Admin) {
